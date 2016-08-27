@@ -75,8 +75,8 @@ if (POSTINSTALL_BUILD_CWD !== CWD) {
   var FLAGS = {};
   for (var i = 2; i < process.argv.length; i++) {
     var arg = process.argv[i];
-    if (arg.match(/^\-\-./)) {
-      FLAGS[arg.slice(2)] = true;
+    if (arg === "--silent") {
+      FLAGS.silent = true;
     } else if (typeof BUILD_ARTIFACT === "undefined") {
       BUILD_ARTIFACT = arg;
     } else if (typeof BUILD_COMMAND === "undefined") {
